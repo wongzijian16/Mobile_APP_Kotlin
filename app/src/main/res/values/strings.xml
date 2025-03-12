@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">natureMagnet</string>
+    <string name="home">Home</string>
+    <string name="awareness">Awareness</string>
+    <string name="event">Events</string>
+    <string name="shop">Shop</string>
+    <string name="profile">Profile</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="manageActivity">Manage Activity</string>
+    <string name="myPost">My Posts</string>
+    <string name="mySavedNewsPosts">Saved News &amp; Posts</string>
+    <string name="cart">My Cart</string>
+    <string name="trackShipping">Track Shipment</string>
+    <string name="logout">Log Out</string>
+    <string name="navigation_draw_open">open navigation drawer</string>
+    <string name="navigation_draw_close">close navigation drawer</string>
+    <string name="ttl_aqi">Air Quality Index</string>
+    <string name="ttl_recent_aqi">Recent AQI</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activitiesTodayTitle">Activities Happening Today</string>
+    <string name="activitiesJoined">Activities Joined</string>
+    <string name="popularUpComingEventsTitle">Popular Up-Coming Events</string>
+    <string name="ActivitiesPosted">Activity Posted</string>
+    <string name="title_activity_admin_main">adminMain</string>
+</resources>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="currentActivity"
+            type="com.example.naturemagnet.entity.Activity" />
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".event_details">
+
+        <!-- blur background -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#E6ACBA9A"
+            app:cardElevation="-1dp" />
+
+        <!-- event details card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/details_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="@dimen/border_radius_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#313E1A"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center_horizontal"
+                        app:cardCornerRadius="50dp">
+
+                        <ImageView
+                            android:id="@+id/details_card_icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="content_description_media"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/photo" />
+
+                    </androidx.cardview.widget.CardView>
+                    <!-- Title, secondary and supporting text -->
+
+                    <TextView
+                        android:id="@+id/details_card_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/margin_15"
+                        android:text="@{currentActivity.name}"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="#ACBA9A"
+                        android:textSize="22dp" />
+                </LinearLayout>
+
+                <!-- Media -->
+                <ImageView
+                    android:id="@+id/details_card_sneakpeek"
+                    android:layout_width="match_parent"
+                    android:layout_height="194dp"
+                    android:contentDescription="content_description_media"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/photo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- secondary and supporting text -->
+                    <TextView
+                        android:id="@+id/details_card_datetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="24/6/2022 \n12 : 00 P.M. - 12 : 30 P.M."
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="#ACBA9A"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/details_card_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:lineHeight="20dp"
+                        android:text="@{currentActivity.descriptions}"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="#ACBA9A"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/details_card_join_btn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="#ACBA9A"
+                        android:text="Join"
+                        android:textColor="#313E1A"
+                        app:cornerRadius="50dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/details_card_edit_btn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="#ACBA9A"
+                        android:text="Edit"
+                        android:textColor="#313E1A"
+                        app:cornerRadius="50dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/details_card_quit_btn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/design_default_color_error"
+                        android:text="Quit"
+                        android:textColor="#ACBA9A"
+                        app:cornerRadius="50dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/details_card_cancel_btn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#ACBA9A"
+                        android:text="Cancel"
+                        android:textColor="#313E1A"
+                        app:cornerRadius="50dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>

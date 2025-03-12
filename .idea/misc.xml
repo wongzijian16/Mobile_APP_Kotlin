@@ -1,0 +1,63 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_activity_fill.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1385" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_baseline_star_border_24.xml" value="0.1385" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_dashboard.xml" value="0.115" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1385" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_magnet_nature.xml" value="0.1165" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/ic_magnet_nature_2.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/icon.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/image_shadow.xml" value="0.115" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/nav_home_icon.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/nav_shop_ic.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/drawable/rounded_corner.xml" value="0.1375" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/action_bar_layout.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/activity.xml" value="0.11096014492753623" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/activity_main.xml" value="0.11666666666666667" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/activity_user_firstpage.xml" value="0.11096014492753623" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/card_item.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/drawer_header.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_all_posts.xml" value="0.22" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_awaraness_main.xml" value="0.121875" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_awareness_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_create_post.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_event_activity_rectangle.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_event_main.xml" value="0.1" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_my_posts.xml" value="0.22" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_test1.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_test2.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/my_post_card.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/news_horizontal_item.xml" value="0.4985754985754986" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/news_vertical_item.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/post_details_card.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/post_details_vertical_item.xml" value="0.2774566473988439" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/posts_vertical_item.xml" value="0.4515195369030391" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.22" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/menu/drawer_menu.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/Admin-pc/AndroidStudioProjects/natureMagnet/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1165" />
+        <entry key="..\:/Users/ngjin/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_event_activity_rectangle.xml" value="0.1" />
+        <entry key="..\:/Users/ngjin/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_event_edit.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/ngjin/AndroidStudioProjects/natureMagnet/app/src/main/res/layout/fragment_user_editprofile.xml" value="0.17552083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3333333333333333" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

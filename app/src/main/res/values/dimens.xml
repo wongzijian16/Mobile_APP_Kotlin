@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- padding -->
+    <dimen name="padding_28">28dp</dimen>
+    <dimen name="padding_24">24dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_6">6dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+
+
+    <!-- margin -->
+    <dimen name="margin_28">28dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+
+    <!-- border radius -->
+    <dimen name="border_radius_10">10dp</dimen>
+    <dimen name="action_area_height">52dp</dimen>
+    // height for action are
+    <dimen name="icon_height">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    // height for icon
+</resources>

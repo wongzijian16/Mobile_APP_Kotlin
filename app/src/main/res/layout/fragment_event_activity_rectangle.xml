@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.example.naturemagnet.entity.Activity" />
+
+        <variable
+            name="participants"
+            type="String" />
+        <variable
+            name="date"
+            type="String" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rectangle_activity"
+        style="@style/card_rectangle_container"
+        app:cardCornerRadius="@dimen/border_radius_10">
+
+        <!-- event background-->
+        <ImageView
+            android:id="@+id/rectangle_card_background_activity"
+            style="@style/card_rectangle_img"
+            app:srcCompat="@drawable/beach_cleaning" />
+
+        <!-- event icon-->
+        <androidx.cardview.widget.CardView
+            style="@style/card_rectangle_icon_activity"
+            app:cardCornerRadius="50dp">
+
+            <ImageView
+                android:id="@+id/rectangle_card_icon_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="content_description_media"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/photo" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Event Brief Info-->
+        <androidx.cardview.widget.CardView
+            style="@style/card_rectangle_desc_container"
+            app:cardBackgroundColor="#E6ACBA9A">
+
+            <TextView
+                android:id="@+id/rectangle_card_desc_title"
+                style="@style/card_rectangle_desc_title_activity"
+                android:text="@{activity.title}"></TextView>
+
+            <TextView
+                android:id="@+id/rectangle_card_desc_participants"
+                style="@style/card_rectangle_desc_text_activity"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:text="@{participants}"></TextView>
+        </androidx.cardview.widget.CardView>
+
+        <!-- date -->
+        <androidx.cardview.widget.CardView
+            style="@style/card_rectangle_date_container"
+            app:cardBackgroundColor="#E6FFFFFF">
+
+            <TextView
+                android:id="@+id/rectangle_card_desc_date"
+                style="@style/card_rectangle_date_text"
+                android:text="@{date}"></TextView>
+        </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

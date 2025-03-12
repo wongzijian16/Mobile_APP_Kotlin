@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Event">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/eventMainFragment"
+                    android:icon="@drawable/ic_dashboard"
+                    android:title="@string/dashboard"></item>
+                <item
+                    android:id="@+id/eventManageFragment"
+                    android:icon="@drawable/ic_activity_fill"
+                    android:title="@string/manageActivity"></item>
+            </group>
+        </menu>
+    </item>
+    <item android:title="Awareness">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/my_posts_fragment"
+                    android:icon="@drawable/ic_ios_paper"
+                    android:title="@string/myPost"></item>
+                <item
+                    android:id="@+id/saved_posts_and_news"
+                    android:icon="@drawable/ic_star_fill"
+                    android:title="@string/mySavedNewsPosts"></item>
+            </group>
+        </menu>
+    </item>
+    <item android:title="Mangement Prod">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/fragment_admin_management"
+                    android:icon="@drawable/ic_product__1_"
+                    android:title="Product Management"></item>
+
+            </group>
+        </menu>
+    </item>
+
+</menu>

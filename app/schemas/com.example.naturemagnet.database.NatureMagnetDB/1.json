@@ -1,0 +1,940 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f30d39ad80569e9daee2210ed5032e73",
+    "entities": [
+      {
+        "tableName": "activity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT, `title` TEXT, `datetime` TEXT, `descriptions` TEXT, `registration_deadline` TEXT, `date_created` TEXT, `venue` TEXT, `sneak_peek` BLOB, `participants` INTEGER, `custID` INTEGER NOT NULL, `categoryID` INTEGER NOT NULL, `activityID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, FOREIGN KEY(`categoryID`) REFERENCES `category`(`categoryID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateTime",
+            "columnName": "datetime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descriptions",
+            "columnName": "descriptions",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "registrationDeadline",
+            "columnName": "registration_deadline",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateCreated",
+            "columnName": "date_created",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "venue",
+            "columnName": "venue",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sneakPeek",
+            "columnName": "sneak_peek",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "participants",
+            "columnName": "participants",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryID",
+            "columnName": "categoryID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activityID",
+            "columnName": "activityID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activityID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_activity_activityID",
+            "unique": true,
+            "columnNames": [
+              "activityID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_activity_activityID` ON `${TABLE_NAME}` (`activityID`)"
+          },
+          {
+            "name": "index_activity_custID",
+            "unique": false,
+            "columnNames": [
+              "custID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_activity_custID` ON `${TABLE_NAME}` (`custID`)"
+          },
+          {
+            "name": "index_activity_categoryID",
+            "unique": false,
+            "columnNames": [
+              "categoryID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_activity_categoryID` ON `${TABLE_NAME}` (`categoryID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "category",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "categoryID"
+            ],
+            "referencedColumns": [
+              "categoryID"
+            ]
+          },
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "activityJoined",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`custID` INTEGER NOT NULL, `activityID` INTEGER NOT NULL, `dateJoined` TEXT NOT NULL, PRIMARY KEY(`custID`, `activityID`), FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`activityID`) REFERENCES `activity`(`activityID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activityID",
+            "columnName": "activityID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateJoined",
+            "columnName": "dateJoined",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "custID",
+            "activityID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_activityJoined_custID_activityID",
+            "unique": true,
+            "columnNames": [
+              "custID",
+              "activityID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_activityJoined_custID_activityID` ON `${TABLE_NAME}` (`custID`, `activityID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          },
+          {
+            "table": "activity",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "activityID"
+            ],
+            "referencedColumns": [
+              "activityID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "admin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`adminID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `adminName` TEXT, `adminEmail` TEXT NOT NULL, `address` TEXT, `phone` TEXT, `password` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "adminID",
+            "columnName": "adminID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adminName",
+            "columnName": "adminName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "adminEmail",
+            "columnName": "adminEmail",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "adminID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_admin_adminEmail",
+            "unique": true,
+            "columnNames": [
+              "adminEmail"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_admin_adminEmail` ON `${TABLE_NAME}` (`adminEmail`)"
+          },
+          {
+            "name": "index_admin_adminID",
+            "unique": true,
+            "columnNames": [
+              "adminID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_admin_adminID` ON `${TABLE_NAME}` (`adminID`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT, `description` TEXT, `icon` BLOB, `categoryID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "categoryID",
+            "columnName": "categoryID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "categoryID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_category_categoryID",
+            "unique": true,
+            "columnNames": [
+              "categoryID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_category_categoryID` ON `${TABLE_NAME}` (`categoryID`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "comment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`commentID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `content` TEXT, `commentDatetime` TEXT, `eventLink` TEXT, `custID` INTEGER NOT NULL, `postID` INTEGER NOT NULL, FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`postID`) REFERENCES `post`(`postID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "commentID",
+            "columnName": "commentID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "commentDatetime",
+            "columnName": "commentDatetime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eventLink",
+            "columnName": "eventLink",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postID",
+            "columnName": "postID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "commentID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_comment_commentID",
+            "unique": true,
+            "columnNames": [
+              "commentID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_comment_commentID` ON `${TABLE_NAME}` (`commentID`)"
+          },
+          {
+            "name": "index_comment_custID",
+            "unique": false,
+            "columnNames": [
+              "custID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_comment_custID` ON `${TABLE_NAME}` (`custID`)"
+          },
+          {
+            "name": "index_comment_postID",
+            "unique": false,
+            "columnNames": [
+              "postID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_comment_postID` ON `${TABLE_NAME}` (`postID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          },
+          {
+            "table": "post",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "postID"
+            ],
+            "referencedColumns": [
+              "postID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "customer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`custID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `custName` TEXT, `custEmail` TEXT NOT NULL, `phone` TEXT, `password` TEXT, `address` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "custName",
+            "columnName": "custName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "custEmail",
+            "columnName": "custEmail",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "custID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_customer_custEmail",
+            "unique": true,
+            "columnNames": [
+              "custEmail"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_customer_custEmail` ON `${TABLE_NAME}` (`custEmail`)"
+          },
+          {
+            "name": "index_customer_custID",
+            "unique": true,
+            "columnNames": [
+              "custID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_customer_custID` ON `${TABLE_NAME}` (`custID`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`newsID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `newsLink` TEXT, `sourceName` TEXT, `publishedDate` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "newsID",
+            "columnName": "newsID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "newsLink",
+            "columnName": "newsLink",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sourceName",
+            "columnName": "sourceName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "publishedDate",
+            "columnName": "publishedDate",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "newsID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_news_newsID",
+            "unique": true,
+            "columnNames": [
+              "newsID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_news_newsID` ON `${TABLE_NAME}` (`newsID`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "newsSaved",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`custID` INTEGER NOT NULL, `newsID` INTEGER NOT NULL, `savedDateTime` TEXT NOT NULL, PRIMARY KEY(`custID`, `newsID`), FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`newsID`) REFERENCES `news`(`newsID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "newsID",
+            "columnName": "newsID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "savedDateTime",
+            "columnName": "savedDateTime",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "custID",
+            "newsID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_newsSaved_custID_newsID",
+            "unique": true,
+            "columnNames": [
+              "custID",
+              "newsID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_newsSaved_custID_newsID` ON `${TABLE_NAME}` (`custID`, `newsID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          },
+          {
+            "table": "news",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "newsID"
+            ],
+            "referencedColumns": [
+              "newsID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "post",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`postID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `content` TEXT, `imgPost` BLOB, `eventLink` TEXT, `shareCount` INTEGER, `postDate` TEXT, `custID` INTEGER NOT NULL, FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "postID",
+            "columnName": "postID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imgPost",
+            "columnName": "imgPost",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eventLink",
+            "columnName": "eventLink",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shareCount",
+            "columnName": "shareCount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "postDate",
+            "columnName": "postDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "postID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_post_postID",
+            "unique": true,
+            "columnNames": [
+              "postID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_post_postID` ON `${TABLE_NAME}` (`postID`)"
+          },
+          {
+            "name": "index_post_custID",
+            "unique": false,
+            "columnNames": [
+              "custID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_post_custID` ON `${TABLE_NAME}` (`custID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "postLiked",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`custID` INTEGER NOT NULL, `postID` INTEGER NOT NULL, `likeDateTime` TEXT, PRIMARY KEY(`custID`, `postID`), FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`postID`) REFERENCES `post`(`postID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postID",
+            "columnName": "postID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "likeDateTime",
+            "columnName": "likeDateTime",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "custID",
+            "postID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_postLiked_custID_postID",
+            "unique": true,
+            "columnNames": [
+              "custID",
+              "postID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_postLiked_custID_postID` ON `${TABLE_NAME}` (`custID`, `postID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          },
+          {
+            "table": "post",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "postID"
+            ],
+            "referencedColumns": [
+              "postID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "postSaved",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`custID` INTEGER NOT NULL, `postID` INTEGER NOT NULL, `savedDateTime` TEXT, PRIMARY KEY(`custID`, `postID`), FOREIGN KEY(`custID`) REFERENCES `customer`(`custID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`postID`) REFERENCES `post`(`postID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "custID",
+            "columnName": "custID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postID",
+            "columnName": "postID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "savedDateTime",
+            "columnName": "savedDateTime",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "custID",
+            "postID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_postSaved_custID_postID",
+            "unique": true,
+            "columnNames": [
+              "custID",
+              "postID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_postSaved_custID_postID` ON `${TABLE_NAME}` (`custID`, `postID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "custID"
+            ],
+            "referencedColumns": [
+              "custID"
+            ]
+          },
+          {
+            "table": "post",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "postID"
+            ],
+            "referencedColumns": [
+              "postID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "product",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`prodName` TEXT, `prodPrice` TEXT, `prodDescription` TEXT, `prodQuantityStock` INTEGER, `prodImage` BLOB, `adminID` INTEGER NOT NULL, `productID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, FOREIGN KEY(`adminID`) REFERENCES `admin`(`adminID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "prodName",
+            "columnName": "prodName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prodPrice",
+            "columnName": "prodPrice",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prodDescription",
+            "columnName": "prodDescription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prodQuantityStock",
+            "columnName": "prodQuantityStock",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prodImage",
+            "columnName": "prodImage",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "adminID",
+            "columnName": "adminID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productID",
+            "columnName": "productID",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "productID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_product_productID",
+            "unique": true,
+            "columnNames": [
+              "productID"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_product_productID` ON `${TABLE_NAME}` (`productID`)"
+          },
+          {
+            "name": "index_product_adminID",
+            "unique": false,
+            "columnNames": [
+              "adminID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_product_adminID` ON `${TABLE_NAME}` (`adminID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "admin",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "adminID"
+            ],
+            "referencedColumns": [
+              "adminID"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f30d39ad80569e9daee2210ed5032e73')"
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.naturemagnet.home_fragment"
+        android:label="Home" />
+    <fragment
+        android:id="@+id/eventMainFragment"
+        android:name="com.example.naturemagnet.event_main"
+        android:label="Event"
+        tools:layout="@layout/fragment_event_main">
+        <action
+            android:id="@+id/action_eventMainFragment_to_eventEdit"
+            app:destination="@id/eventEdit" />
+
+        <argument
+            android:name="clickFrom"
+            android:defaultValue="From First Fragment"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_eventMainFragment_to_event_details"
+            app:destination="@id/event_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/awarenessMainFragment"
+        android:name="com.example.naturemagnet.awareness_main"
+        android:label="Awareness">
+        <action
+            android:id="@+id/action_awarenessMainFragment_to_fragment_all_post"
+            app:destination="@id/fragment_all_post" />
+        <action
+            android:id="@+id/action_awarenessMainFragment_to_post_details"
+            app:destination="@id/post_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.example.naturemagnet.create_post"
+        android:label="Create Post">
+        <action
+            android:id="@+id/action_createPostFragment_to_fragment_all_post"
+            app:destination="@id/fragment_all_post"
+            app:popUpTo="@id/fragment_all_post"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventEdit"
+        android:name="com.example.naturemagnet.event_edit"
+        android:label="Edit Activity Details"
+        tools:layout="@layout/fragment_event_edit" />
+    <fragment
+        android:id="@+id/fragment_shop"
+        android:name="com.example.naturemagnet.fragment_shop"
+        android:label="Ecommerce" >
+        <action
+            android:id="@+id/action_fragment_shop_to_fragment_prodDetail"
+            app:destination="@id/fragment_prodDetail" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_admin_management"
+        android:name="com.example.naturemagnet.Admin_management"
+        android:label="Product Management">
+        <action
+            android:id="@+id/action_fragment_admin_management_to_addProduct"
+            app:destination="@id/adminAddProduct"
+            app:popUpTo="@id/adminAddProduct"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragment_admin_management_to_editProduct2"
+            app:destination="@id/adminEditProduct"
+            app:popUpTo="@id/adminEditProduct"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAddProduct"
+        android:name="com.example.naturemagnet.AddProduct"
+        android:label="Add Product"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_adminAddProduct_to_fragment_admin_management"
+            app:destination="@id/fragment_admin_management"
+            app:popUpTo="@id/fragment_admin_management"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditProduct"
+        android:name="com.example.naturemagnet.EditProduct"
+        android:label="Edit Product" >
+        <action
+            android:id="@+id/action_adminEditProduct_to_fragment_admin_management"
+            app:destination="@id/fragment_admin_management"
+            app:popUpTo="@id/fragment_admin_management"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_prodDetail"
+        android:name="com.example.naturemagnet.fragment_prodDetail"
+        android:label="Details"
+        tools:layout="@layout/fragment_prod_detail" />
+    <fragment
+        android:id="@+id/event_details"
+        android:name="com.example.naturemagnet.event_details"
+        android:label="Event Details"
+        tools:layout="@layout/fragment_event_details" />
+
+    <fragment
+        android:id="@+id/fragment_all_post"
+        android:name="com.example.naturemagnet.all_posts"
+        android:label="All Posts">
+        <action
+            android:id="@+id/action_fragment_all_post_to_createPostFragment"
+            app:destination="@id/createPostFragment" />
+        <action
+            android:id="@+id/action_fragment_all_post_to_awarenessMainFragment"
+            app:destination="@id/awarenessMainFragment"
+            app:popUpTo="@id/awarenessMainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragment_all_post_to_post_details"
+            app:destination="@id/post_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/my_posts_fragment"
+        android:name="com.example.naturemagnet.my_posts"
+        android:label="My Post" >
+        <action
+            android:id="@+id/action_my_posts_fragment_to_edit_post"
+            app:destination="@id/edit_post" />
+        <action
+            android:id="@+id/action_my_posts_fragment_to_product_details"
+            app:destination="@id/post_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventManageFragment"
+        android:name="com.example.naturemagnet.event_manage"
+        android:label="Event Manage"
+        tools:layout="@layout/fragment_event_manage" />
+
+    <fragment
+        android:id="@+id/fragment_user_main"
+        android:name="com.example.naturemagnet.fragment_user_main"
+        android:label="Profile"
+        tools:layout="@layout/fragment_user_main" />
+    <fragment
+        android:id="@+id/fragment_user_editprofile"
+        android:name="com.example.naturemagnet.fragment_user_editprofile"
+        android:label="Edit Profile" />
+    <fragment
+        android:id="@+id/fragment_user_changepassword"
+        android:name="com.example.naturemagnet.fragment_user_changepassword"
+        android:label="Change Password" />
+    <fragment
+        android:id="@+id/edit_post"
+        android:name="com.example.naturemagnet.edit_post"
+        android:label="Edit Post">
+        <action
+            android:id="@+id/action_edit_post_to_my_posts_fragment"
+            app:destination="@id/my_posts_fragment"
+            app:popUpTo="@id/my_posts_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/post_details"
+        android:name="com.example.naturemagnet.post_details"
+        android:label="Post"
+        tools:layout="@layout/fragment_post_details">
+        <action
+            android:id="@+id/action_product_details_to_my_posts_fragment"
+            app:destination="@id/my_posts_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saved_posts_and_news"
+        android:name="com.example.naturemagnet.saved_posts_and_news"
+        android:label=" Saved News &amp; Posts"
+        tools:layout="@layout/fragment_saved_posts_and_news">
+        <action
+            android:id="@+id/action_saved_posts_and_news_to_post_details"
+            app:destination="@id/post_details" />
+    </fragment>
+</navigation>
